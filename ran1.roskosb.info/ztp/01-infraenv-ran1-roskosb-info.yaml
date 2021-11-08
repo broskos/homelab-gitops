@@ -1,0 +1,28 @@
+---
+apiVersion: agent-install.openshift.io/v1beta1
+kind: InfraEnv
+metadata:
+  name: infraenv-ran1-roskosb-info
+  namespace: assisted-installer
+spec:
+  additionalNTPSources:
+    - kvm2.home.brentandrkrysti.com
+  clusterRef:
+    name: cluster-ran1-roskosb-info
+    namespace: assisted-installer
+  ## (optional pub key)
+  sshAuthorizedKey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+utYpGWf0ei+J8M2TtX3YZmUQpTu1tLFI5Q/eQ189ucmpNMq8d/TjXr7BnaKoSQm0xxCT7a5OKnWCi713cVaCP6FJKczt1o4qV2MAlg35DZAJtgnWW05AvnYf345FYKMhod/LbCn8FWROPX3tssZURpTo8x8ylmEayPHZkU3pO7LK7gaRXpuVC/kzTmL5jneAcuUvVPH6RbGwm2FsAincT+LtX9/q55+W7CfjGWfqSq4TwyQlpvCMOsy99T86lEk3AWcou+ea7GN+lg8T7Cl5Y9GNBfD2CcB0rfTVVZXd+ZRZuvbDsxZ81gjeow9lcWF0xEymzccVD+R4PUxYlnHp broskos@broskos.remote.csb'
+  agentLabelSelector:
+    matchLabels:
+      telco-rwn: ran1-roskosb-info
+  pullSecretRef:
+    name: assisted-deployment-pull-secret
+  # proxy:
+  #   httpProxy: http://11.11.11.33
+  #   httpsProxy: http://22.22.22.55
+  # Modify ignition during discovery
+  #ignitionConfigOverride: '{"ignition": {"version": "3.1.0"}, "storage": {"files": [{"path": "/etc/someconfig", "contents": {"source": "data:text/plain;base64,aGVscGltdHJhcHBlZGluYXN3YWdnZXJzcGVj"}}]}}'
+  ## Custom network configuration
+  nmStateConfigLabelSelector:
+    matchLabels:
+      cluster-name: ran1-nmstate

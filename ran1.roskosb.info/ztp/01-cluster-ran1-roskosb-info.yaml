@@ -1,0 +1,23 @@
+---
+apiVersion: hive.openshift.io/v1
+kind: ClusterDeployment
+metadata:
+  name: cluster-ran1-roskosb-info
+  namespace: assisted-installer
+spec:
+  baseDomain: roskosb.info
+  clusterName: ran1
+  controlPlaneConfig:
+    servingCertificates: {}
+  clusterInstallRef:
+    group: extensions.hive.openshift.io
+    kind: AgentClusterInstall
+    name: aci-ran1-roskosb-info
+    version: v1beta1
+  platform:
+    agentBareMetal:
+      agentSelector:
+        matchLabels:
+          telco-rwn: ran1-roskosb-info
+  pullSecretRef:
+    name: assisted-deployment-pull-secret

@@ -1,0 +1,28 @@
+---
+# This is equivalent to a base common profile
+apiVersion: extensions.hive.openshift.io/v1beta1
+kind: AgentClusterInstall
+metadata:
+  name: aci-ran1-roskosb-info
+  namespace: assisted-installer
+  annotations:
+    agent-install.openshift.io/install-config-overrides: '{"networking":{"networkType":"OVNKubernetes"}}'
+spec:
+  apiVIP: 192.168.201.199
+  ingressVIP: 192.168.201.200
+  clusterDeploymentRef:
+    name: aci-ran1-roskosb-info
+  imageSetRef:
+    name: openshift-v4.8.12
+#  manifestsConfigMapRef:
+#    name: cm-overrides-ran1-roskosb-info
+  networking:
+    clusterNetwork:
+      - cidr: "10.128.0.0/14"
+        hostPrefix: 23
+    serviceNetwork:
+      - "172.30.0.0/16"
+  provisionRequirements:
+    controlPlaneAgents: 3
+    workerAgents: 0
+  sshPublicKey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+utYpGWf0ei+J8M2TtX3YZmUQpTu1tLFI5Q/eQ189ucmpNMq8d/TjXr7BnaKoSQm0xxCT7a5OKnWCi713cVaCP6FJKczt1o4qV2MAlg35DZAJtgnWW05AvnYf345FYKMhod/LbCn8FWROPX3tssZURpTo8x8ylmEayPHZkU3pO7LK7gaRXpuVC/kzTmL5jneAcuUvVPH6RbGwm2FsAincT+LtX9/q55+W7CfjGWfqSq4TwyQlpvCMOsy99T86lEk3AWcou+ea7GN+lg8T7Cl5Y9GNBfD2CcB0rfTVVZXd+ZRZuvbDsxZ81gjeow9lcWF0xEymzccVD+R4PUxYlnHp broskos@broskos.remote.csb'

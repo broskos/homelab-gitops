@@ -1,0 +1,277 @@
+---
+apiVersion: agent-install.openshift.io/v1beta1
+kind: NMStateConfig
+metadata:
+  name: nmstate-super1-ran1-roskosb-info
+  namespace: assisted-installer
+  labels:
+    cluster-name: ran1-nmstate
+spec:
+  config:
+    interfaces:
+      - name: enp0s20f0
+        type: ethernet
+        state: up
+        ipv4:
+          enabled: true
+          address:
+            - ip: 192.168.201.221
+              prefix-length: 24
+          dhcp: false
+    dns-resolver:
+      config:
+        server:
+          - 192.168.2.2
+    routes:
+      config:
+        - destination: 0.0.0.0/0
+          next-hop-address: 192.168.201.1
+          next-hop-interface: enp0s20f0
+  interfaces:
+    - name: enp0s20f0
+      macAddress: 0c:c4:7a:6b:80:34
+
+---
+apiVersion: agent-install.openshift.io/v1beta1
+kind: NMStateConfig
+metadata:
+  name: nmstate-super2-ran1-roskosb-info
+  namespace: assisted-installer
+  labels:
+    cluster-name: ran1-nmstate
+spec:
+  config:
+    interfaces:
+      - name: enp0s20f0
+        type: ethernet
+        state: up
+        ipv4:
+          enabled: true
+          address:
+            - ip: 192.168.201.222
+              prefix-length: 24
+          dhcp: false
+    dns-resolver:
+      config:
+        server:
+          - 192.168.2.2
+    routes:
+      config:
+        - destination: 0.0.0.0/0
+          next-hop-address: 192.168.201.1
+          next-hop-interface: enp0s20f0
+  interfaces:
+    - name: enp0s20f0
+      macAddress: ac:1f:6b:02:10:d4
+
+---
+apiVersion: agent-install.openshift.io/v1beta1
+kind: NMStateConfig
+metadata:
+  name: nmstate-super3-ran1-roskosb-info
+  namespace: assisted-installer
+  labels:
+    cluster-name: ran1-nmstate
+spec:
+  config:
+    interfaces:
+      - name: enp0s20f0
+        type: ethernet
+        state: up
+        ipv4:
+          enabled: true
+          address:
+            - ip: 192.168.201.223
+              prefix-length: 24
+          dhcp: false
+    dns-resolver:
+      config:
+        server:
+          - 192.168.2.2
+    routes:
+      config:
+        - destination: 0.0.0.0/0
+          next-hop-address: 192.168.201.1
+          next-hop-interface: enp0s20f0
+  interfaces:
+    - name: enp0s20f0
+      macAddress: ac:1f:6b:02:10:c4
+
+#---
+#apiVersion: agent-install.openshift.io/v1beta1
+#kind: NMStateConfig
+#metadata:
+#  name: nmstate-cu2-ran1-roskosb-info
+#  namespace: assisted-installer
+#  labels:
+#    cluster-name: ran1-nmstate
+#spec:
+#  config:
+#    interfaces:
+#      - name: bond0
+#        type: bond
+#        state: up
+#        ipv4:
+#          enabled: true
+#          address:
+#            - ip: 10.50.0.152
+#              prefix-length: 24
+#          dhcp: false
+#        link-aggregation:
+#          mode: active-backup
+#          options:
+#            miimon: '150'
+#            primary: ens7f0
+#          slaves:
+#          - ens7f0
+#          - ens7f1
+#      - name: ens1f0
+#        type: ethernet
+#        state: down
+#      - name: ens1f1
+#        type: ethernet
+#        state: down
+#    dns-resolver:
+#      config:
+#        server:
+#          - 10.40.0.100
+#    routes:
+#      config:
+#        - destination: 0.0.0.0/0
+#          next-hop-address: 10.50.0.1
+#          next-hop-interface: bond0
+#  interfaces:
+#    - name: ens1f0
+#      macAddress: 40:A6:B7:3A:D1:60
+#    - name: ens1f1
+#      macAddress: 40:A6:B7:3A:D1:61
+#    - name: ens7f0
+#      macAddress: 40:A6:B7:3A:CF:20
+#    - name: ens7f1
+#      macAddress: 40:A6:B7:3A:CF:21
+#---
+#apiVersion: agent-install.openshift.io/v1beta1
+#kind: NMStateConfig
+#metadata:
+#  name: nmstate-mgmt1-ran1-roskosb-info
+#  namespace: assisted-installer
+#  labels:
+#    cluster-name: ran1-nmstate
+#spec:
+#  config:
+#    interfaces:
+#      - name: bond0
+#        type: bond
+#        state: up
+#        ipv4:
+#          enabled: true
+#          address:
+#            - ip: 172.17.0.101
+#              prefix-length: 24
+#          dhcp: false
+#        link-aggregation:
+#          mode: active-backup
+#          options:
+#            miimon: '150'
+#            primary: ens7f0
+#          slaves:
+#          - ens7f0
+#          - ens7f1
+#      - name: ens1f0
+#        type: ethernet
+#        state: down
+#      - name: ens1f1
+#        type: ethernet
+#        state: down
+#    dns-resolver:
+#      config:
+#        server:
+#          - 10.40.0.100
+#    routes:
+#      config:
+#        - destination: 0.0.0.0/0
+#          next-hop-address: 172.17.0.1
+#          next-hop-interface: bond0
+#  interfaces:
+#    - name: ens1f0
+#      macAddress: 40:a6:b7:3d:c5:30
+#    - name: ens1f1
+#      macAddress: 40:a6:b7:3d:c5:31
+#    - name: ens7f0
+#      macAddress: 40:a6:b7:3d:d7:30
+#    - name: ens7f1
+#      macAddress: 40:a6:b7:3d:d7:31
+#---
+#apiVersion: agent-install.openshift.io/v1beta1
+#kind: NMStateConfig
+#metadata:
+#  name: nmstate-du1-fec2-ran1-roskosb-info
+#  namespace: assisted-installer
+#  labels:
+#    cluster-name: ran1-nmstate
+#spec:
+#  config:
+#    interfaces:
+#      - name: ens2f0
+#        type: ethernet
+#        state: up
+#        macAddress: ac:1f:6b:e1:79:ba
+#        ipv4:
+#          address:
+#          - ip: 172.19.0.151
+#            prefix-length: 24
+#          enabled: true
+#      - name: ens2f1
+#        type: ethernet
+#        state: down
+#        macAddress: ac:1f:6b:e1:79:bb
+#    dns-resolver:
+#      config:
+#        server:
+#          - 10.40.0.100
+#    routes:
+#      config:
+#        - destination: 0.0.0.0/0
+#          next-hop-address: 172.19.0.1
+#          next-hop-interface: ens2f0
+#---
+#apiVersion: agent-install.openshift.io/v1beta1
+#kind: NMStateConfig
+#metadata:
+#  name: nmstate-du1-ldc1-ran1-roskosb-info
+#  namespace: assisted-installer
+#  labels:
+#    cluster-name: ran1-nmstate
+#spec:
+#  config:
+#    interfaces:
+#      - name: eth0
+#        type: ethernet
+#        state: up
+#        macAddress: 3c:ec:ef:30:52:64
+#        ipv4:
+#          address:
+#          - ip: 172.17.0.181
+#            prefix-length: 24
+#          enabled: true
+#      - name: eth1
+#        type: ethernet
+#        state: down
+#        macAddress: 3c:ec:ef:30:52:65
+#      - name: enp81s0f0
+#        type: ethernet
+#        state: down
+#        macAddress: 3c:ec:ef:74:9c:c8
+#      - name: enp138s0f0
+#        type: ethernet
+#        state: down
+#        macAddress: b4:96:91:89:48:44
+#    dns-resolver:
+#      config:
+#        server:
+#          - 10.40.0.100
+#    routes:
+#      config:
+#        - destination: 0.0.0.0/0
+#          next-hop-address: 172.17.0.1
+#          next-hop-interface: eth0
