@@ -41,3 +41,8 @@ resources:
   - 02-lso-localvolume-lvs.yaml
   - 03-lso-filesystemclass-default.yaml
   - 04-clusterimageset-4.8.x.yaml
+  # add this binding temporarily as infra-operator perms seem broken
+  #  - 05-clusterrolebinding-assisted-service
+
+# oc patch storageclass lso-filesystemclass -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/volumeBindingMode":"WaitForFirstConsumer"}}}'
+

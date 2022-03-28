@@ -13,6 +13,7 @@ spec:
           operator: Exists
   storageClassDevices:
     - storageClassName: "lso-filesystemclass" 
+      volumeBindingMode: WaitForFirstConsumer
       volumeMode: Filesystem 
       fsType: xfs 
       devicePaths: 
@@ -20,6 +21,7 @@ spec:
         - /dev/autopart/lv_2 
         - /dev/autopart/lv_3
     - storageClassName: "lso-blockclass" 
+      volumeBindingMode: WaitForFirstConsumer
       volumeMode: Block  
       devicePaths: 
         - /dev/autopart/lv_4 
