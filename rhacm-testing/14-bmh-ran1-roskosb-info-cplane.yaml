@@ -1,0 +1,96 @@
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: bmc-master1-ran1-roskosb-info
+  namespace: ran1-roskosb-info
+data:
+  username: VVNFUgo=
+  password: UEFTU1dPUkQK
+type: Opaque
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: bmc-master2-ran1-roskosb-info
+  namespace: ran1-roskosb-info
+data:
+  username: VVNFUgo=
+  password: UEFTU1dPUkQK
+type: Opaque
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: bmc-master3-ran1-roskosb-info
+  namespace: ran1-roskosb-info
+data:
+  username: VVNFUgo=
+  password: UEFTU1dPUkQK
+type: Opaque
+---
+apiVersion: metal3.io/v1alpha1
+kind: BareMetalHost
+metadata:
+  name: master1-ran1-roskosb-info
+  namespace: ran1-roskosb-info
+  labels:
+    infraenvs.agent-install.openshift.io: "infraenv-ran1-roskosb-info"
+  annotations:
+    inspect.metal3.io: disabled
+    bmac.agent-install.openshift.io/hostname: "master1"
+    bmac.agent-install.openshift.io/role: master
+    bmac.agent-install.openshift.io/installer-args: '["--copy-network"]'
+    #bmac.agent-install.openshift.io/installer-args: '["--append-karg", "bond=bond0:ens7f0,ens7f1:mode=active-backup ip=bond0:dhcp", "--save-partindex", "1", "--copy-network"]'
+    #bmac.agent-install.openshift.io/installer-args: '["--append-karg", "ip=192.0.2.2::192.0.2.254:255.255.255.0:core0.example.com:enp1s0:none", "--save-partindex", "1", "--copy-network"]'
+    #bmac.agent-install.openshift.io/ignition-config-overrides: '{"ignition":{"version":"3.2.0"},"storage":{"disks":[{"device":"/dev/sdb","partitions":[{"label":"root","number":4,"resize":true,"sizeMiB":102400},{"label":"lso_10G_1","sizeMiB":10240},{"label":"lso_10G_2","sizeMiB":10240},{"label":"lso_10G_3","sizeMiB":10240}],"wipeTable":false}]}}'
+spec:
+  online: true
+  bootMACAddress: de:ad:be:ef:c0:3c
+  automatedCleaningMode: disabled
+  bmc:
+    address: redfish://kvm.roskosb.info:8082/redfish/v1/Systems/ran1_master1
+    credentialsName: bmc-master1-ran1-roskosb-info
+    disableCertificateVerification: True
+---
+apiVersion: metal3.io/v1alpha1
+kind: BareMetalHost
+metadata:
+  name: master2-ran1-roskosb-info
+  namespace: ran1-roskosb-info
+  labels:
+    infraenvs.agent-install.openshift.io: "infraenv-ran1-roskosb-info"
+  annotations:
+    inspect.metal3.io: disabled
+    bmac.agent-install.openshift.io/hostname: "master2"
+    bmac.agent-install.openshift.io/role: master
+    bmac.agent-install.openshift.io/installer-args: '["--copy-network"]'
+spec:
+  online: true
+  bootMACAddress: de:ad:be:ef:c0:3d
+  automatedCleaningMode: disabled
+  bmc:
+    address: redfish://kvm.roskosb.info:8082/redfish/v1/Systems/ran1_master2
+    credentialsName: bmc-master2-ran1-roskosb-info
+    disableCertificateVerification: True
+---
+apiVersion: metal3.io/v1alpha1
+kind: BareMetalHost
+metadata:
+  name: master3-ran1-roskosb-info
+  namespace: ran1-roskosb-info
+  labels:
+    infraenvs.agent-install.openshift.io: "infraenv-ran1-roskosb-info"
+  annotations:
+    inspect.metal3.io: disabled
+    bmac.agent-install.openshift.io/hostname: "master3"
+    bmac.agent-install.openshift.io/role: master
+    bmac.agent-install.openshift.io/installer-args: '["--copy-network"]'
+spec:
+  online: true
+  bootMACAddress: de:ad:be:ef:c0:3e
+  automatedCleaningMode: disabled
+  bmc:
+    address: redfish://kvm.roskosb.info:8082/redfish/v1/Systems/ran1_master3
+    credentialsName: bmc-master3-ran1-roskosb-info
+    disableCertificateVerification: True

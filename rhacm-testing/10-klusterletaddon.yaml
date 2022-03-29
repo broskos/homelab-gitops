@@ -1,0 +1,22 @@
+---
+apiVersion: agent.open-cluster-management.io/v1
+kind: KlusterletAddonConfig
+metadata:
+  name: klusterletaddonconfig-ran1-roskosb-info
+  namespace: ran1-roskosb-info
+spec:
+  clusterName: ran1-roskosb-info
+  clusterNamespace: ran1-roskosb-info
+  clusterLabels:
+    cloud: auto-detect
+    vendor: auto-detect
+  applicationManager:
+    enabled: true
+  certPolicyController:
+    enabled: false
+  iamPolicyController:
+    enabled: false
+  policyController:
+    enabled: true
+  searchCollector:
+    enabled: false 

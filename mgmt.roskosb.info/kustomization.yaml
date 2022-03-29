@@ -20,9 +20,11 @@ bases:
   # Include IDP htpasswd example
   - github.com/openshift-telco/telco-gitops/base/configs/idp-htpasswd?ref=main
   # Import blueprint cluster definitions for MGMT Clusters
-  - github.com/openshift-telco/telco-gitops/blueprints/mgmt?ref=main
+  - github.com/broskos/telco-gitops/blueprints/mgmt-rhacm?ref=main
   # Hive
-  - github.com/openshift-telco/telco-gitops/base/operators/hive
+  # - github.com/openshift-telco/telco-gitops/base/operators/hive
+  # Local Storage Operator
+  - github.com/openshift-telco/telco-gitops/base/operators/local-storage-operator?ref=main
   # Red Hat Advanced Cluster Manager for Kubernetes
   # - github.com/openshift-telco/telco-gitops/base/operators/advanced-cluster-management?ref=main
   # OpenShift Container storage
@@ -40,7 +42,8 @@ resources:
   - 01-master-create-lvs-for-lso.yaml
   - 02-lso-localvolume-lvs.yaml
   - 03-lso-filesystemclass-default.yaml
-  - 04-clusterimageset-4.8.x.yaml
+#  - 04-clusterimageset-4.8.x.yaml
+#  - 04-clusterimageset-4.9.x.yaml
   # add this binding temporarily as infra-operator perms seem broken
   #  - 05-clusterrolebinding-assisted-service
 

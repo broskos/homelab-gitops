@@ -1,0 +1,98 @@
+---
+apiVersion: agent-install.openshift.io/v1beta1
+kind: NMStateConfig
+metadata:
+  name: nmstate-master1-ran1-roskosb-info
+  namespace: assisted-installer
+  labels:
+    cluster-name: ran1-nmstate
+spec:
+  config:
+    interfaces:
+      - name: enp1s0
+        type: ethernet
+        state: up
+        ipv4:
+          enabled: true
+          address:
+            - ip: 192.168.2.210
+              prefix-length: 24
+          dhcp: false
+    dns-resolver:
+      config:
+        server:
+          - 192.168.2.2
+    routes:
+      config:
+        - destination: 0.0.0.0/0
+          next-hop-address: 192.168.2.2
+          next-hop-interface: enp1s0
+  interfaces:
+    - name: enp1s0
+      macAddress: de:ad:be:ef:c0:3c
+---
+apiVersion: agent-install.openshift.io/v1beta1
+kind: NMStateConfig
+metadata:
+  name: nmstate-master2-ran1-roskosb-info
+  namespace: assisted-installer
+  labels:
+    cluster-name: ran1-nmstate
+spec:
+  config:
+    interfaces:
+      - name: enp1s0
+        type: ethernet
+        state: up
+        ipv4:
+          enabled: true
+          address:
+            - ip: 192.168.2.211
+              prefix-length: 24
+          dhcp: false
+    dns-resolver:
+      config:
+        server:
+          - 192.168.2.2
+    routes:
+      config:
+        - destination: 0.0.0.0/0
+          next-hop-address: 192.168.2.2
+          next-hop-interface: enp1s0
+  interfaces:
+    - name: enp1s0
+      macAddress: de:ad:be:ef:c0:3d
+
+---
+apiVersion: agent-install.openshift.io/v1beta1
+kind: NMStateConfig
+metadata:
+  name: nmstate-master3-ran1-roskosb-info
+  namespace: assisted-installer
+  labels:
+    cluster-name: ran1-nmstate
+spec:
+  config:
+    interfaces:
+      - name: enp1s0
+        type: ethernet
+        state: up
+        ipv4:
+          enabled: true
+          address:
+            - ip: 192.168.2.212
+              prefix-length: 24
+          dhcp: false
+    dns-resolver:
+      config:
+        server:
+          - 192.168.2.2
+    routes:
+      config:
+        - destination: 0.0.0.0/0
+          next-hop-address: 192.168.2.2
+          next-hop-interface: enp1s0
+  interfaces:
+    - name: enp1s0
+      macAddress: de:ad:be:ef:c0:3e
+

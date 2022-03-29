@@ -20,7 +20,7 @@ bases:
   - github.com/openshift-telco/telco-gitops/base/configs/all-common?ref=main
 #  # Import blueprint cluster definitions
 #  - ../../blueprints/combined-ran
-  - github.com/broskos/telco-gitops/blueprints/mgmt-rhacm?ref=main
+  - github.com/openshift-telco/telco-gitops/blueprints/combined-ran?ref=main
 #  # OpenShift Logging
 #  # - ../../base/operators/openshift-logging
   - github.com/openshift-telco/telco-gitops/base/operators/openshift-logging?ref=main
