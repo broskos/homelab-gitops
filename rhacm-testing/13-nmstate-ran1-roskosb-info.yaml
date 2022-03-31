@@ -3,9 +3,9 @@ apiVersion: agent-install.openshift.io/v1beta1
 kind: NMStateConfig
 metadata:
   name: nmstate-master1-ran1-roskosb-info
-  namespace: assisted-installer
+  namespace: ran1-roskosb-info
   labels:
-    cluster-name: ran1-nmstate
+    cluster-name: ran1-roskosb-info
 spec:
   config:
     interfaces:
@@ -18,6 +18,8 @@ spec:
             - ip: 192.168.2.210
               prefix-length: 24
           dhcp: false
+        ipv6:
+          enabled: false
     dns-resolver:
       config:
         server:
@@ -35,9 +37,9 @@ apiVersion: agent-install.openshift.io/v1beta1
 kind: NMStateConfig
 metadata:
   name: nmstate-master2-ran1-roskosb-info
-  namespace: assisted-installer
+  namespace: ran1-roskosb-info
   labels:
-    cluster-name: ran1-nmstate
+    cluster-name: ran1-roskosb-info
 spec:
   config:
     interfaces:
@@ -50,6 +52,8 @@ spec:
             - ip: 192.168.2.211
               prefix-length: 24
           dhcp: false
+        ipv6:
+          enabled: false
     dns-resolver:
       config:
         server:
@@ -68,9 +72,9 @@ apiVersion: agent-install.openshift.io/v1beta1
 kind: NMStateConfig
 metadata:
   name: nmstate-master3-ran1-roskosb-info
-  namespace: assisted-installer
+  namespace: ran1-roskosb-info
   labels:
-    cluster-name: ran1-nmstate
+    cluster-name: ran1-roskosb-info
 spec:
   config:
     interfaces:
@@ -83,6 +87,8 @@ spec:
             - ip: 192.168.2.212
               prefix-length: 24
           dhcp: false
+        ipv6:
+          enabled: false
     dns-resolver:
       config:
         server:

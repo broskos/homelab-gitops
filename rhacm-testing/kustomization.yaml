@@ -1,0 +1,20 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  # - 00-rhacm-install.yaml
+  # - 01-multiclusterhub.yaml
+  # - 02-hiveoverride.yaml
+  - 03-provisioningoverride.yaml
+  - 04-agentserviceconfig.yaml
+  - 05-clusterimageset.yaml
+  - 06-namespace.yaml
+  - 07-pullsecret.yaml
+  - 08-aci.yaml
+  - 09-clusterdeployment.yaml
+  - 10-klusterletaddon.yaml
+  - 11-managedcluster.yaml
+  - 12-infraenv-ran1-roskosb-info.yaml
+  - 13-nmstate-ran1-roskosb-info.yaml
+  - 14-bmh-ran1-roskosb-info-cplane.yaml

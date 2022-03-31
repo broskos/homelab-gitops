@@ -14,7 +14,7 @@ spec:
   clusterDeploymentRef:
     name: ran1-roskosb-info
   imageSetRef:
-    name: openshift-v4.10.4
+    name: openshift-v4.10.3
 #  manifestsConfigMapRef:
 #    name: cm-overrides-ran1-roskosb-info
   networking:
@@ -28,7 +28,6 @@ spec:
       - fd02::/112
     machineNetwork:
       - cidr: 192.168.2.0/24
-      - cidr: fd00:6:6:2052::0/64
   provisionRequirements:
     controlPlaneAgents: 3
     workerAgents: 0

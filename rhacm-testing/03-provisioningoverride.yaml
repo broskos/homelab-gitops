@@ -5,3 +5,7 @@ metadata:
   name: provisioning-configuration
 spec:
   watchAllNamespaces: true
+    #provisioningIP: 192.168.201.101
+    #provisioningDHCPRange: 192.168.201.230,192.168.201.250
+    #provisioningNetworkCIDR: 192.168.201.0/24
+    #provisioningOSDownloadURL: http://registry.ocp-edge-cluster-assisted-0.qe.lab.redhat.com:8080/images/rhcos-410.84.202112040202-0-openstack.x86_64.qcow2.gz?sha256=198692bd7f388634736315e73b6fd7647c9971c3803fb8b412e0d4dab33bc527

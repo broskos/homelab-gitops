@@ -27,4 +27,4 @@ spec:
   ## Custom network configuration
   nmStateConfigLabelSelector:
     matchLabels:
-      cluster-name: ran1-nmstate
+      cluster-name: ran1-roskosb-info
