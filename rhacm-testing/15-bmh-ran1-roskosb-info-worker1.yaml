@@ -60,7 +60,7 @@ spec:
   bootMACAddress: de:ad:be:ef:c0:3c
   automatedCleaningMode: disabled
   bmc:
-    address: redfish-virtualmedia+http://kvm.roskosb.info:8082/redfish/v1/Systems/4deacec7-8e1b-45e7-a012-66301d42d775
+    address: redfish-virtualmedia+https://kvm.roskosb.info:8082/redfish/v1/Systems/4deacec7-8e1b-45e7-a012-66301d42d775
     credentialsName: bmc-worker1-ran1-roskosb-info
     disableCertificateVerification: True
 -

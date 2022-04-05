@@ -6,5 +6,5 @@ metadata:
 spec:
   preProvisioningOSDownloadURLs: {}
   provisioningNetwork: Disabled
-  provisioningOSDownloadURL: http://192.168.2.105/images/rhcos-4.9.0-x86_64-openstack.x86_64.qcow2.gz?sha256=3466690807fb710102559ea57daac0484c59ed4d914996882d601b8bb7a7ada8
+  provisioningOSDownloadURL: http://192.168.201.190/images/rhcos-4.9.0-x86_64-openstack.x86_64.qcow2.gz?sha256=3466690807fb710102559ea57daac0484c59ed4d914996882d601b8bb7a7ada8
   watchAllNamespaces: true
