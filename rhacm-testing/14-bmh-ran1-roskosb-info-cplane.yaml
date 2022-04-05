@@ -49,7 +49,7 @@ spec:
   bootMACAddress: de:ad:be:ef:c0:3c
   automatedCleaningMode: disabled
   bmc:
-    address: redfish://kvm.roskosb.info:8082/redfish/v1/Systems/ran1_master1
+    address: redfish-virtualmedia+http://kvm.roskosb.info:8082/redfish/v1/Systems/8e40647b-3b89-4c51-a836-e4ec0fef92d2
     credentialsName: bmc-master1-ran1-roskosb-info
     disableCertificateVerification: True
 ---
@@ -70,7 +70,7 @@ spec:
   bootMACAddress: de:ad:be:ef:c0:3d
   automatedCleaningMode: disabled
   bmc:
-    address: redfish://kvm.roskosb.info:8082/redfish/v1/Systems/ran1_master2
+    address: redfish-virtualmedia+http://kvm.roskosb.info:8082/redfish/v1/Systems/ac946584-283d-43c8-aa9b-40e5a2591e75
     credentialsName: bmc-master2-ran1-roskosb-info
     disableCertificateVerification: True
 ---
@@ -91,6 +91,6 @@ spec:
   bootMACAddress: de:ad:be:ef:c0:3e
   automatedCleaningMode: disabled
   bmc:
-    address: redfish://kvm.roskosb.info:8082/redfish/v1/Systems/ran1_master3
+    address: redfish-virtualmedia+http://kvm.roskosb.info:8082/redfish/v1/Systems/183ef7d6-9dbb-4dde-bd1b-4113dbd7c183
     credentialsName: bmc-master3-ran1-roskosb-info
     disableCertificateVerification: True

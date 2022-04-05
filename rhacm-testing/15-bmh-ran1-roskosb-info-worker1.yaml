@@ -1,0 +1,66 @@
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: bmc-worker1-ran1-roskosb-info
+  namespace: ran1-roskosb-info
+data:
+  username: VVNFUgo=
+  password: UEFTU1dPUkQK
+type: Opaque
+---
+apiVersion: agent-install.openshift.io/v1beta1
+kind: NMStateConfig
+metadata:
+  name: nmstate-worker1-ran1-roskosb-info
+  namespace: ran1-roskosb-info
+  labels:
+    cluster-name: ran1-roskosb-info
+spec:
+  config:
+    interfaces:
+      - name: enp1s0
+        type: ethernet
+        state: up
+        ipv4:
+          enabled: true
+          address:
+            - ip: 192.168.2.213
+              prefix-length: 24
+          dhcp: false
+        ipv6:
+          enabled: false
+    dns-resolver:
+      config:
+        server:
+          - 192.168.2.2
+    routes:
+      config:
+        - destination: 0.0.0.0/0
+          next-hop-address: 192.168.2.2
+          next-hop-interface: enp1s0
+  interfaces:
+    - name: enp1s0
+      macAddress: de:ad:be:ef:c0:3f
+---
+apiVersion: metal3.io/v1alpha1
+kind: BareMetalHost
+metadata:
+  name: worker1-ran1-roskosb-info
+  namespace: ran1-roskosb-info
+  labels:
+    infraenvs.agent-install.openshift.io: "infraenv-ran1-roskosb-info"
+  annotations:
+    inspect.metal3.io: disabled
+    bmac.agent-install.openshift.io/hostname: "worker1"
+    bmac.agent-install.openshift.io/role: worker
+    bmac.agent-install.openshift.io/installer-args: '["--copy-network"]'
+spec:
+  online: true
+  bootMACAddress: de:ad:be:ef:c0:3c
+  automatedCleaningMode: disabled
+  bmc:
+    address: redfish-virtualmedia+http://kvm.roskosb.info:8082/redfish/v1/Systems/4deacec7-8e1b-45e7-a012-66301d42d775
+    credentialsName: bmc-worker1-ran1-roskosb-info
+    disableCertificateVerification: True
+-
