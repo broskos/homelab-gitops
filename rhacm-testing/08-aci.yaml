@@ -14,7 +14,7 @@ spec:
   clusterDeploymentRef:
     name: ran1-roskosb-info
   imageSetRef:
-    name: openshift-v4.10.3
+    name: openshift-v4.10.9
 #  manifestsConfigMapRef:
 #    name: cm-overrides-ran1-roskosb-info
   networking:
