@@ -7,14 +7,14 @@ metadata:
   annotations:
     #agent-install.openshift.io/install-config-overrides: '{"networking":{"networkType":"OVNKubernetes"}}'
 spec:
-  apiVIP: 192.168.2.204
+#  apiVIP: 192.168.2.204
   #apiVIP: fd00:6:6:2052::98
-  ingressVIP: 192.168.2.205
+#  ingressVIP: 192.168.2.205
   #ingressVIP: fd00:6:6:2052::99
   clusterDeploymentRef:
     name: ran1-roskosb-info
   imageSetRef:
-    name: openshift-v4.10.9
+    name: openshift-v4.10.11
 #  manifestsConfigMapRef:
 #    name: cm-overrides-ran1-roskosb-info
   networking:
@@ -26,7 +26,7 @@ spec:
     machineNetwork:
       - cidr: 192.168.2.0/24
   provisionRequirements:
-    controlPlaneAgents: 3
+    controlPlaneAgents: 1
     workerAgents: 0
 #  proxy:
 #    httpProxy: http://infra-registry.infra.cars.lab:3128
